@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(180deg, #4e0097, #8a2be2);
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+        }
+
+        .balloon-container {
+            position: relative;
+            width: 100%;
+            height: 100%;
+        }
+
+        .balloon {
+            position: absolute;
+            bottom: 20%;
+            left: -20%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            animation: move-balloon 4s forwards;
+        }
+
+        .balloon-circle {
+            width: 50px;
+            height: 50px;
+            background-color: yellow;
+            border-radius: 50%;
+        }
+
+        .balloon-string {
+            width: 2px;
+            height: 50px;
+            background-color: white;
+        }
+
+        .balloon-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: white;
+            margin-top: -70px;
+            animation: change-number 2s steps(1) forwards;
+        }
+
+        @keyframes move-balloon {
+            0% { transform: translateX(0) translateY(0); opacity: 1; }
+            50% { transform: translateX(50%) translateY(-10%); }
+            100% { transform: translateX(100%) translateY(-50%); opacity: 0; }
+        }
+
+        @keyframes change-number {
+            0% { content: '5'; }
+            50% { content: '5'; }
+            51% { content: '4'; }
+            100% { content: '4'; }
+        }
+
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 2.5rem;
+            color: white;
+            opacity: 0;
+            animation: show-message 2s 4s forwards;
+        }
+
+        @keyframes show-message {
+            0% { opacity: 0; transform: translate(-50%, -40%); }
+            100% { opacity: 1; transform: translate(-50%, -50%); }
+        }
+    </style>
+</head>
+<body>
+    <div class="balloon-container">
+        <div class="balloon">
+            <div class="balloon-circle"></div>
+            <div class="balloon-string"></div>
+            <div class="balloon-number">5</div>
+        </div>
+        <div class="message">Happy New Year!</div>
+    </div>
+</body>
+</html>
