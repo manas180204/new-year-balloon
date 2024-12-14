@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Happy New Year</title>
     <style>
+        /* Body and Background Styling */
         body {
             margin: 0;
             height: 100vh;
@@ -14,22 +15,34 @@
             background: linear-gradient(180deg, #4e0097, #8a2be2);
             overflow: hidden;
             font-family: Arial, sans-serif;
+            color: white;
         }
 
+        /* Static 2024 Text */
+        .year-2024 {
+            font-size: 5rem;
+            font-weight: bold;
+            position: absolute;
+            top: 40%;
+            text-align: center;
+        }
+
+        /* Balloon Container */
         .balloon-container {
             position: relative;
             width: 100%;
             height: 100%;
         }
 
+        /* Balloon */
         .balloon {
             position: absolute;
-            bottom: 10%; /* Adjust starting point */
+            bottom: 10%; /* Starting point */
             left: 0; /* Start off-screen */
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: move-balloon 5s linear forwards;
+            animation: move-balloon 6s linear forwards;
         }
 
         .balloon-circle {
@@ -50,9 +63,22 @@
             font-weight: bold;
             color: white;
             margin-top: -70px;
-            animation: change-number 2s linear 2s forwards; /* Delayed start */
+            animation: change-number 2s linear 3s forwards; /* Starts after the balloon moves halfway */
         }
 
+        /* Happy New Year Message */
+        .message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 3rem;
+            color: white;
+            opacity: 0;
+            animation: show-message 2s 6s forwards; /* Starts after the balloon disappears */
+        }
+
+        /* Keyframes for Animations */
         @keyframes move-balloon {
             0% { transform: translateX(0) translateY(0); opacity: 1; }
             50% { transform: translateX(50%) translateY(-10%); }
@@ -60,21 +86,10 @@
         }
 
         @keyframes change-number {
-            0% { content: '5'; } /* CSS can't directly change content; apply logic with JS */
+            0% { content: '5'; } /* Start with number 5 */
             50% { content: '5'; }
-            51% { content: '4'; }
+            51% { content: '4'; } /* Switch to number 4 */
             100% { content: '4'; }
-        }
-
-        .message {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-size: 2.5rem;
-            color: white;
-            opacity: 0;
-            animation: show-message 2s 4s forwards;
         }
 
         @keyframes show-message {
@@ -84,12 +99,17 @@
     </style>
 </head>
 <body>
+    <!-- Static 2024 -->
+    <div class="year-2024">2024</div>
+
+    <!-- Balloon Container -->
     <div class="balloon-container">
         <div class="balloon">
             <div class="balloon-circle"></div>
             <div class="balloon-string"></div>
             <div class="balloon-number">5</div>
         </div>
+        <!-- Happy New Year Message -->
         <div class="message">Happy New Year!</div>
     </div>
 </body>
