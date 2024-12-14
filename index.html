@@ -24,12 +24,12 @@
 
         .balloon {
             position: absolute;
-            bottom: 20%;
-            left: -20%;
+            bottom: 10%; /* Adjust starting point */
+            left: 0; /* Start off-screen */
             display: flex;
             flex-direction: column;
             align-items: center;
-            animation: move-balloon 4s forwards;
+            animation: move-balloon 5s linear forwards;
         }
 
         .balloon-circle {
@@ -50,7 +50,7 @@
             font-weight: bold;
             color: white;
             margin-top: -70px;
-            animation: change-number 2s steps(1) forwards;
+            animation: change-number 2s linear 2s forwards; /* Delayed start */
         }
 
         @keyframes move-balloon {
@@ -60,7 +60,7 @@
         }
 
         @keyframes change-number {
-            0% { content: '5'; }
+            0% { content: '5'; } /* CSS can't directly change content; apply logic with JS */
             50% { content: '5'; }
             51% { content: '4'; }
             100% { content: '4'; }
